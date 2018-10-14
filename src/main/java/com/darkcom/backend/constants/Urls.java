@@ -12,4 +12,8 @@ public interface Urls {
         String USER = "add";
         String USER_INFO = "userInfo";
     }
+    interface LonginUrls{
+        String ROOT="/login";
+        String LOGIN_ACTION="/loginAction";
+    }
 }
