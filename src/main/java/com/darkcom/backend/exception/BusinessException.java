@@ -1,13 +1,13 @@
 package com.darkcom.backend.exception;
 
 
-import com.darkcom.backend.common.Result;
+import com.darkcom.backend.common.ResponseVo;
 
 /**
  * @author yaojy
  */
 public class BusinessException extends RuntimeException {
-    private Integer code = Result.ACCEPT;
+    private Integer code = ResponseVo.ACCEPT;
 
     public BusinessException() {
         super();

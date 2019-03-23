@@ -7,7 +7,7 @@ import java.io.Serializable;
  * @param <T>
  * @author yaojy
  */
-public class Result<T> implements Serializable {
+public class ResponseVo<T> implements Serializable {
     public static final Integer OK = 200;
     public static final Integer ACCEPT = 202;
     public static final Integer BAD_REQUEST = 400;
@@ -26,42 +26,42 @@ public class Result<T> implements Serializable {
      */
     private T data;
 
-    public Result() {
+    public ResponseVo() {
         this(OK);
     }
 
-    public Result(Integer code) {
+    public ResponseVo(Integer code) {
         this(code, (String) null);
     }
 
-    public Result(Integer code, String message) {
+    public ResponseVo(Integer code, String message) {
         this(code, message, null);
     }
 
-    public Result(Integer code, String message, T data) {
+    public ResponseVo(Integer code, String message, T data) {
         this.code = code;
         this.message = message;
         this.data = data;
     }
 
-    public Result(T payload) {
+    public ResponseVo(T payload) {
         this(OK, (String) null, payload);
     }
 
-    public static <T> Result<T> succeed() {
-        return new Result();
+    public static <T> ResponseVo<T> succeed() {
+        return new ResponseVo();
     }
 
-    public static <T> Result<T> succeed(T payload) {
-        return new Result(payload);
+    public static <T> ResponseVo<T> succeed(T payload) {
+        return new ResponseVo(payload);
     }
 
-    public static <T> Result<T> fail(Integer code) {
-        return new Result(code);
+    public static <T> ResponseVo<T> fail(Integer code) {
+        return new ResponseVo(code);
     }
 
-    public static <T> Result<T> fail(Integer code, String message) {
-        return new Result(code, message);
+    public static <T> ResponseVo<T> fail(Integer code, String message) {
+        return new ResponseVo(code, message);
     }
 
     public Integer getCode() {
@@ -90,6 +90,6 @@ public class Result<T> implements Serializable {
 
     @Override
     public String toString() {
-        return "Result{code=" + this.code + ", message='" + this.message + '\'' + ", data=" + this.data + '}';
+        return "ResponseVo{code=" + this.code + ", message='" + this.message + '\'' + ", data=" + this.data + '}';
     }
 }

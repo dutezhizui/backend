@@ -17,13 +17,13 @@ public class ExceptionHandle {
 
     @ExceptionHandler(value = Exception.class)
     @ResponseBody
-    public Result Handle(Exception e) {
+    public ResponseVo Handle(Exception e) {
         logger.error("异常抛出：message={}", e.getMessage());
         if (e instanceof BusinessException) {
             BusinessException businessException = (BusinessException) e;
-            return Result.fail(businessException.getCode(), businessException.getMessage());
+            return ResponseVo.fail(businessException.getCode(), businessException.getMessage());
         }
-        return Result.fail(403, "系统错误");
+        return ResponseVo.fail(403, "系统错误");
     }
 
 }
