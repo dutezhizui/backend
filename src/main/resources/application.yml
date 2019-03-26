@@ -30,3 +30,11 @@ spring:
     maxOpenPreparedStatements: 20
 mybatis:
   mapper-locations: classpath:mapper/*.xml
+#wechat config
+wx:
+  mp:
+    configs:
+    - appId: wxe7dda47103a5ae28
+      secret: 7eebea8d39d1b07fab156e5da6ebc4c0
+      token: happy
+      aesKey: 111
