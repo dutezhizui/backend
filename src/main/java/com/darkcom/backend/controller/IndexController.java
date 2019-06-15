@@ -1,11 +1,24 @@
 package com.darkcom.backend.controller;
 
+import com.darkcom.backend.common.ResponseVo;
 import com.darkcom.backend.constants.Urls;
-import io.swagger.annotations.Api;
+import com.darkcom.backend.dto.response.GroupQuotaResponse;
+import com.darkcom.backend.generate.tables.pojos.GroupQuota;
+import com.darkcom.backend.generate.tables.records.GroupQuotaRecord;
 import lombok.extern.slf4j.Slf4j;
+import org.jooq.DSLContext;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 /**
  * 首页相关
@@ -13,24 +26,45 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @author yaojiaoyi
  */
 @Slf4j
-@Api("首页相关")
 @Controller
 @RequestMapping(value = Urls.IndexUrls.ROOT)
 public class IndexController {
+    @Autowired
+    private DSLContext dslContext;
+    com.darkcom.backend.generate.tables.GroupQuota gq = com.darkcom.backend.generate.tables.GroupQuota.T_GROUP_QUOTA.as("gq");
+
+    @PostMapping(value = "/dsl/insert")
+    @ResponseBody
+    public ResponseVo<List<GroupQuotaResponse>> addUser() {
+        List<GroupQuotaRecord> list=new ArrayList<>();
+        GroupQuotaRecord groupQuotaRecord=new GroupQuotaRecord();
+        groupQuotaRecord.setGroupId("C");
+        groupQuotaRecord.setQuotaBalance(22);
+        groupQuotaRecord.setCreatedTime(LocalDateTime.now());
+        GroupQuotaRecord groupQuotaRecord1=new GroupQuotaRecord();
+        groupQuotaRecord1.setGroupId("D");
+        groupQuotaRecord1.setQuotaBalance(22);
+        groupQuotaRecord1.setCreatedTime(LocalDateTime.now());
+        list.add(groupQuotaRecord);
+        list.add(groupQuotaRecord1);
+        int[] count=dslContext.batchInsert(list).execute();
+        List<GroupQuotaResponse> result = dslContext.selectFrom(gq).fetchInto(GroupQuotaResponse.class);
+        return new ResponseVo<>(result);
+    }
 
     @GetMapping
-    public String index(){
+    public String index() {
         return "index.html";
     }
 
     @GetMapping(value = "/test")
-    public String indexD(){
+    public String indexD() {
         return "index";
     }
 
 
     @GetMapping(value = "/testa")
-    public String indexDd(){
+    public String indexDd() {
         return "index";
     }
 }

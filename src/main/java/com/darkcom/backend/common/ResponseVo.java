@@ -26,6 +26,9 @@ public class ResponseVo<T> implements Serializable {
      */
     private T data;
 
+    private String traceId;
+    private long timestamp = System.currentTimeMillis();
+
     public ResponseVo() {
         this(OK);
     }
@@ -86,6 +89,22 @@ public class ResponseVo<T> implements Serializable {
 
     public void setData(T data) {
         this.data = data;
+    }
+
+    public String getTraceId() {
+        return traceId;
+    }
+
+    public void setTraceId(String traceId) {
+        this.traceId = traceId;
+    }
+
+    public long getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(long timestamp) {
+        this.timestamp = timestamp;
     }
 
     @Override

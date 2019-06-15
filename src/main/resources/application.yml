@@ -9,7 +9,7 @@ spring:
       additional-paths: src/main/java,resources/**,static/**,templates/**
   datasource:
     name: demo
-    url: jdbc:mysql://123.57.241.67:3306/demo
+    url: jdbc:mysql://123.57.241.67:3306/test
     username: root
     password: 123456
     # 使用druid数据源
@@ -28,8 +28,6 @@ spring:
     testOnReturn: false
     poolPreparedStatements: true
     maxOpenPreparedStatements: 20
-mybatis:
-  mapper-locations: classpath:mapper/*.xml
 #wechat config
 wx:
   mp:
@@ -38,3 +36,6 @@ wx:
       secret: 7eebea8d39d1b07fab156e5da6ebc4c0
       token: happy
       aesKey: 111
+logging:
+  path: d:/log/test
+  config: classpath:logback-spring.xml
