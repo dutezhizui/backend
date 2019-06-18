@@ -66,6 +66,7 @@
         <appender-ref ref ="FILE"/>
     </appender>
     <logger name="org.jooq" level="DEBUG"/>
+    <logger name="cn.binarywang.wx.miniapp" level="debug"/>
     <root level="info">
         <!--<appender-ref ref="CONSOLE" />-->
         <appender-ref ref="ASYNC" />

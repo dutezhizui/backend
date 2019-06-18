@@ -9,6 +9,7 @@ public interface Urls {
 
     interface User {
         String ROOT = "/v1/user/";
+        String LOGIN = "/login";
         String USER = "add";
         String USER_INFO = "userInfo";
     }

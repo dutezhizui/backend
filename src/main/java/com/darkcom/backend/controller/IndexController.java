@@ -3,7 +3,8 @@ package com.darkcom.backend.controller;
 import com.darkcom.backend.common.ResponseVo;
 import com.darkcom.backend.constants.Urls;
 import com.darkcom.backend.dto.response.GroupQuotaResponse;
-import com.darkcom.backend.generate.tables.pojos.GroupQuota;
+import com.darkcom.backend.exception.BizException;
+import com.darkcom.backend.exception.ErrorCodeEnum;
 import com.darkcom.backend.generate.tables.records.GroupQuotaRecord;
 import lombok.extern.slf4j.Slf4j;
 import org.jooq.DSLContext;
@@ -14,10 +15,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -66,5 +65,11 @@ public class IndexController {
     @GetMapping(value = "/testa")
     public String indexDd() {
         return "index";
+    }
+
+    @ResponseBody
+    @PostMapping("/testExp")
+    public ResponseVo testexp(){
+        throw new BizException(ErrorCodeEnum.DATA_NOT_FOUND);
     }
 }
