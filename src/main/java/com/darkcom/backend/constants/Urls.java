@@ -8,10 +8,11 @@ package com.darkcom.backend.constants;
 public interface Urls {
 
     interface User {
-        String ROOT = "/v1/user/";
+        String ROOT = "/{appid}/v1/user/";
         String LOGIN = "/login";
         String USER = "add";
-        String USER_INFO = "userInfo";
+        String USER_INFO = "/userInfo";
+        String GET_USER_PHONE = "/getPhone";
     }
 
     interface IndexUrls {

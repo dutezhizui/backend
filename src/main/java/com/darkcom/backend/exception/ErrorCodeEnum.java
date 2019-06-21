@@ -8,7 +8,9 @@ public enum ErrorCodeEnum {
 
     SUCCESS(200, "成功"),
     SYSTEM_ERROR(500, "系统异常"),
-    DATA_NOT_FOUND(10000, "未找到数据");
+    DATA_NOT_FOUND(40000, "未找到数据"),
+    JSCODE_NOT_FOUND(40001, "未找微信Code"),
+    WX_USER_CHECK_ERROR(40002, "用户校验失败");
     // 成员变量
     private Integer code;
     private String msg;
