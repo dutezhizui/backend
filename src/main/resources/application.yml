@@ -30,19 +30,14 @@ spring:
     maxOpenPreparedStatements: 20
 #wechat config
 wx:
-  mp:
-    configs:
-    - appId: wxe7dda47103a5ae28
-      secret: 7eebea8d39d1b07fab156e5da6ebc4c0
-      token: happy
-      aesKey: 111
   miniapp:
     configs:
-    - appid: #微信小程序的appid
-      secret: #微信小程序的Secret
-      token: #微信小程序消息服务器配置的token
-      aesKey: #微信小程序消息服务器配置的EncodingAESKey
+    - appid: wxa063d9ac87b09c0c
+      secret: f9914d6ef6a354dd905530d06e8b48d4
+      token: miniApp
+      aesKey: AgRiat0snfTaz1V5CDrpViAReeoBiWyx2PPY6Ms1531
       msgDataFormat: JSON
+
 logging:
   path: d:/log/test
   config: classpath:logback-spring.xml

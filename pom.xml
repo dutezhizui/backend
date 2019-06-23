@@ -80,11 +80,6 @@
         </dependency>
         <dependency>
             <groupId>com.github.binarywang</groupId>
-            <artifactId>weixin-java-mp</artifactId>
-            <version>3.3.0</version>
-        </dependency>
-        <dependency>
-            <groupId>com.github.binarywang</groupId>
             <artifactId>weixin-java-miniapp</artifactId>
             <version>3.4.0</version>
         </dependency>
@@ -92,8 +87,9 @@
         <dependency>
             <groupId>commons-beanutils</groupId>
             <artifactId>commons-beanutils</artifactId>
-            <version>1.9.2</version>
+            <version>1.9.3</version>
         </dependency>
+
     </dependencies>
 
     <build>
